@@ -35,14 +35,14 @@
 						</el-table>
 						 <!--分页区域-->
   						<el-pagination
-      						@size-change="size_change" 
-      						@current-change="current_change"  
-      						:current-page="currentPage"  
-      						:page-sizes="[10,20,30]"   
-      						:page-size="pagesize"  
-      						layout="total, sizes, prev, pager, next, jumper"  
+      						@size-change="size_change"
+      						@current-change="current_change"
+      						:current-page="currentPage"
+      						:page-sizes="[10,20,30]"
+      						:page-size="pagesize"
+      						layout="total, sizes, prev, pager, next, jumper"
       						:total="tableData.length
-      						"> 
+      						">
   						</el-pagination>
 						</el-card>
                     </div>
@@ -83,14 +83,14 @@
 						</el-table>
 						 <!--分页区域-->
   						<el-pagination
-      						@size-change="movie_size_change" 
-      						@current-change="movie_current_change"  
-      						:current-page="movieCurrentPage"  
-      						:page-sizes="[10,20,30]"   
-      						:page-size="moviePagesize"  
-      						layout="total, sizes, prev, pager, next, jumper"  
+      						@size-change="movie_size_change"
+      						@current-change="movie_current_change"
+      						:current-page="movieCurrentPage"
+      						:page-sizes="[10,20,30]"
+      						:page-size="moviePagesize"
+      						layout="total, sizes, prev, pager, next, jumper"
       						:total="movieData.length
-      						"> 
+      						">
   						</el-pagination>
 						</el-card>
                     </div>
@@ -118,7 +118,7 @@
 			</el-form>
 			<div>
 				<el-button type="primary" @click="sumbitEditRow()">确定</el-button>
-				<el-button @click="closeDialog()">取消</el-button>	
+				<el-button @click="closeDialog()">取消</el-button>
 			</div>
 		</el-dialog>
 		<el-dialog :visible.sync="isAddMembers">
@@ -167,7 +167,7 @@
 			</el-form>
 			<div>
 				<el-button type="primary" @click="sumbitMovieEditRow()">确定</el-button>
-				<el-button @click="closeMovieDialog()">取消</el-button>	
+				<el-button @click="closeMovieDialog()">取消</el-button>
 			</div>
 		</el-dialog>
 		<el-dialog :visible.sync="isAddMovieMembers">
@@ -243,8 +243,8 @@
 				let data = {  // 需要传递的参数
         			ids: [row.id]
       			};
-      			axios.post("http://159.138.46.191:80/music/delete", data).then(
-				(resp) => {  
+      			axios.post("http://117.50.175.161/music/delete", data).then(
+				(resp) => {
 					this.notifySuccess();
 					this.reload();
       			});
@@ -254,8 +254,8 @@
 				let data = {  // 需要传递的参数
         			ids: [row.id]
       			};
-      			axios.post("http://159.138.46.191:80/movie/delete", data).then(
-				(resp) => {  
+      			axios.post("http://117.50.175.161:80/movie/delete", data).then(
+				(resp) => {
 					this.notifySuccess();
 					this.reload();
       			});
@@ -276,10 +276,10 @@
         			author: this.editForm.author,
         			musicUrl: this.editForm.musicUrl
       			};
-      			axios.post("http://159.138.46.191:80/music/update?id=" + this.editForm.id, data).then(
-				(resp) => {  
+      			axios.post("http://117.50.175.161:80/music/update?id=" + this.editForm.id, data).then(
+				(resp) => {
 					this.notifySuccess();
-					this.reload();	
+					this.reload();
       			});
 				this.centerDialogVisible = false;
 			},
@@ -292,10 +292,10 @@
         			movieUrl: this.editMovieForm.movieUrl,
 					picUrl: this.editMovieForm.picUrl
       			};
-      			axios.post("http://159.138.46.191:80/movie/update?id=" + this.editMovieForm.id, data).then(
-				(resp) => {  
+      			axios.post("http://117.50.175.161:80/movie/update?id=" + this.editMovieForm.id, data).then(
+				(resp) => {
 					this.notifySuccess();
-					this.reload();	
+					this.reload();
       			});
 				this.centerDialogMovieVisible = false;
 			},
@@ -315,7 +315,7 @@
 				this.isAddMovieMembers = true
 			},
 			//提交新增
-			sumbitAddRow() {				
+			sumbitAddRow() {
 				console.log(this.addForm);
 				let data = {
         			title: this.addForm.title,
@@ -323,16 +323,16 @@
         			author: this.addForm.author,
         			musicUrl: this.addForm.musicUrl
       			};
-      			axios.post("http://159.138.46.191:80/music/add", data).then(
-				(resp) => {  
+      			axios.post("http://117.50.175.161:80/music/add", data).then(
+				(resp) => {
 					this.notifySuccess();
 					//实时刷新
-					this.reload();	
+					this.reload();
       			});
 				this.isAddMembers = false;
 			},
 			//提交新增
-			sumbitMovieAddRow() {				
+			sumbitMovieAddRow() {
 				console.log(this.addMovieForm);
 				let data = {
         			title: this.addMovieForm.title,
@@ -341,24 +341,24 @@
         			movieUrl: this.addMovieForm.movieUrl,
 					picUrl: this.addMovieForm.picUrl
       			};
-      			axios.post("http://159.138.46.191:80/movie/add", data).then(
-				(resp) => {  
+      			axios.post("http://117.50.175.161:80/movie/add", data).then(
+				(resp) => {
 					this.notifySuccess();
 					//实时刷新
-					this.reload();	
+					this.reload();
       			});
 				this.isAddMovieMembers = false;
 			},
 			//获取音乐列表数据
 			getData() {
-      			axios.get("http://159.138.46.191:80/music/list?limit=200&keyWord=").then(
+      			axios.get("http://117.50.175.161:80/music/list?limit=200&keyWord=").then(
         		response => {
           			this.tableData = response.data.data;
         		});
     		},
 			//获取电影列表数据
 			getMovieData() {
-      			axios.get("http://159.138.46.191:80/movie/list?limit=200&keyWord=").then(
+      			axios.get("http://117.50.175.161:80/movie/list?limit=200&keyWord=").then(
         		response => {
           			this.movieData = response.data.data;
         		});
@@ -367,7 +367,7 @@
 			{
 				let keyWord = this.$refs.musicKeyWord.value
 				console.log(keyWord)
-				axios.get("http://159.138.46.191:80/music/list?limit=200&keyWord=" + keyWord).then(
+				axios.get("http://117.50.175.161:80/music/list?limit=200&keyWord=" + keyWord).then(
         		response => {
           			this.tableData = response.data.data;
         		});
@@ -376,7 +376,7 @@
 			{
 				let keyWord = this.$refs.movieKeyWord.value
 				console.log(keyWord)
-				axios.get("http://159.138.46.191:80/movie/list?limit=200&keyWord=" + keyWord).then(
+				axios.get("http://117.50.175.161:80/movie/list?limit=200&keyWord=" + keyWord).then(
         		response => {
           			this.tableData = response.data.data;
         		});

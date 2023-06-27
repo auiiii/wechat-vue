@@ -17,7 +17,7 @@
 						<el-card>
 						<el-table key="tab01" v-if="tableData.length > 0"
                       		:data="tableData.slice((currentPage-1)*pagesize,currentPage*pagesize)" :stripe="true" :border="true" width="100%">
-							<el-table-column label="名称" prop="title"></el-table-column>										
+							<el-table-column label="名称" prop="title"></el-table-column>
 							<el-table-column label="作者" prop="author"></el-table-column>
                             <el-table-column label="摘要" prop="digest"></el-table-column>
 							<el-table-column label="原文地址" prop="url">
@@ -25,7 +25,7 @@
 									<el-link :href="row.url" target="_blank" class="buttonText"  type="primary" :underline="false">跳转链接</el-link>
         						</template>
 							</el-table-column>
-							<el-table-column label="序号" prop="article_id"></el-table-column>	
+							<el-table-column label="序号" prop="article_id"></el-table-column>
 							<el-table-column label="操作">
 							<template slot-scope="scope">
 								<el-button type="primary" @click="getDescription(scope.row)">详情</el-button>
@@ -34,14 +34,14 @@
 						</el-table>
 						 <!--分页区域-->
   						<el-pagination
-      						@size-change="size_change" 
-      						@current-change="current_change"  
-      						:current-page="currentPage"  
-      						:page-sizes="[10,20,30]"   
-      						:page-size="pagesize"  
-      						layout="total, sizes, prev, pager, next, jumper"  
+      						@size-change="size_change"
+      						@current-change="current_change"
+      						:current-page="currentPage"
+      						:page-sizes="[10,20,30]"
+      						:page-size="pagesize"
+      						layout="total, sizes, prev, pager, next, jumper"
       						:total="tableData.length
-      						"> 
+      						">
   						</el-pagination>
 						</el-card>
                     </div>
@@ -97,7 +97,7 @@
 			},
 			//获取列表数据
 			getData() {
-      			axios.get("http://159.138.46.191:80/article/list").then(
+      			axios.get("http://117.50.175.161:80/article/list").then(
         		response => {
           			this.tableData = response.data.data;
         		});

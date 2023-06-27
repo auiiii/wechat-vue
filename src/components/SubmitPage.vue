@@ -38,7 +38,7 @@ export default {
   },
   // 钩子渲染数据
 	mounted() {
-    
+
   },
   methods: {
     //获取列表数据
@@ -62,8 +62,8 @@ export default {
         text: this.$refs.inputarea.value
       };
       console.log(data);
-      axios.post("http://159.138.46.191:80/article/submit", data).then(
-				(resp) => {  
+      axios.post("http://117.50.175.161:80/article/submit", data).then(
+				(resp) => {
 					this.notifySuccess();
           this.opinionForm.name = '';
           this.opinionForm.text = '';

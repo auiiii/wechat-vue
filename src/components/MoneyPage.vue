@@ -22,7 +22,7 @@
           <el-step title="步骤 3" description="支付并拷贝红包口令"></el-step>
           <el-step title="步骤 4" description="将口令粘贴到上方文本框提交"></el-step>
         </el-steps>
-        <el-button style="margin-top: 12px;" @click="next">下一步</el-button>         
+        <el-button style="margin-top: 12px;" @click="next">下一步</el-button>
       </h3>
 
       <el-divider></el-divider>
@@ -47,7 +47,7 @@ export default {
   },
   // 钩子渲染数据
 	mounted() {
-    
+
   },
   methods: {
     //获取列表数据
@@ -66,8 +66,8 @@ export default {
       let data = {
         code: this.$refs.inputarea.value
       };
-      axios.post("http://159.138.46.191:80/money/submit", data).then(
-				(resp) => {  
+      axios.post("http://117.50.175.161:80/money/submit", data).then(
+				(resp) => {
 					this.notifySuccess();
 					this.reload();
       });

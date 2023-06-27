@@ -37,14 +37,14 @@
 						</el-table>
 						 <!--分页区域-->
   						<el-pagination
-      						@size-change="size_change" 
-      						@current-change="current_change"  
-      						:current-page="currentPage"  
-      						:page-sizes="[10,20,30]"   
-      						:page-size="pagesize"  
-      						layout="total, sizes, prev, pager, next, jumper"  
+      						@size-change="size_change"
+      						@current-change="current_change"
+      						:current-page="currentPage"
+      						:page-sizes="[10,20,30]"
+      						:page-size="pagesize"
+      						layout="total, sizes, prev, pager, next, jumper"
       						:total="tableData.length
-      						"> 
+      						">
   						</el-pagination>
 						</el-card>
                     </div>
@@ -68,17 +68,17 @@
 			</el-form>
 			<div>
 				<el-button type="primary" @click="sumbitEditRow()">确定</el-button>
-				<el-button @click="closeDialog()">取消</el-button>	
+				<el-button @click="closeDialog()">取消</el-button>
 			</div>
 		</el-dialog>
 
 	<el-dialog :visible.sync="isAddMembers">
       <el-form :rules="rules" ref="uploadForm" :model="uploadForm">
-	  
+
 		<el-form-item label="图片名称" prop="name">
             <el-input v-model="uploadForm.name" ref="uploadName"></el-input>
         </el-form-item>
-        
+
         <el-form-item>
             <el-upload ref="upfile"
                 style="display: inline"
@@ -134,8 +134,8 @@
 				let data = {  // 需要传递的参数
         			ids: [row.id]
       			};
-      			axios.post("http://159.138.46.191:80/pic/delete", data).then(
-				(resp) => {  
+      			axios.post("http://117.50.175.161:80/pic/delete", data).then(
+				(resp) => {
 					this.notifySuccess();
 					this.reload();
       			});
@@ -152,10 +152,10 @@
         			mediaId: this.editForm.mediaId,
         			url: this.editForm.url
       			};
-      			axios.post("http://159.138.46.191:80/pic/update?id=" + this.editForm.id, data).then(
-				(resp) => {  
+      			axios.post("http://117.50.175.161:80/pic/update?id=" + this.editForm.id, data).then(
+				(resp) => {
 					this.notifySuccess();
-					this.reload();	
+					this.reload();
       			});
 				this.centerDialogVisible = false;
 			},
@@ -169,7 +169,7 @@
 			},
 			//获取列表数据
 			getData() {
-      			axios.get("http://159.138.46.191:80/pic/list?limit=200&keyWord=").then(
+      			axios.get("http://117.50.175.161:80/pic/list?limit=200&keyWord=").then(
         		response => {
           			this.tableData = response.data.data;
         		});
@@ -178,7 +178,7 @@
 			{
 				let keyWord = this.$refs.picName.value
 				console.log(keyWord)
-				axios.get("http://159.138.46.191:80/pic/list?limit=200&keyWord=" + keyWord).then(
+				axios.get("http://117.50.175.161:80/pic/list?limit=200&keyWord=" + keyWord).then(
         		response => {
           			this.tableData = response.data.data;
         		});
@@ -235,7 +235,7 @@
                 //文件信息中raw才是真的文件
                 fd.append("file", item.raw);
             	})
-            	axios.post("http://159.138.46.191:80/wechat/uploadUrl?name=" + name, fd)
+            	axios.post("http://117.50.175.161:80/wechat/uploadUrl?name=" + name, fd)
 				.then(res=>{
 					this.notifySuccess();
                 })
@@ -243,7 +243,7 @@
 				//实时刷新
 				this.reload();
         	}
-		}	
+		}
 	}
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->

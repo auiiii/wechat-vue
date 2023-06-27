@@ -42,7 +42,7 @@ export default {
   methods: {
     //获取列表数据
 		getData() {
-      axios.get("http://159.138.46.191:80/opinion/list").then(
+      axios.get("http://117.50.175.161:80/opinion/list").then(
         response => {
           this.opinions = response.data.data;
         	});
@@ -59,8 +59,8 @@ export default {
       let data = {
         text: this.$refs.textarea.value
       };
-      axios.post("http://159.138.46.191:80/opinion/submit", data).then(
-				(resp) => {  
+      axios.post("http://117.50.175.161:80/opinion/submit", data).then(
+				(resp) => {
 					this.notifySuccess();
 					this.opinionForm.text = '';
       });
