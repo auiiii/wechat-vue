@@ -27,9 +27,9 @@ axios.interceptors.request.use(config => {
 
 axios.interceptors.response.use((response) => {
   console.log(response);
+  let rspCode = response.status;//http状态码200的也要放行
   let code = response.data.status;
-  console.log(code);
-  if (code == "200")
+  if (code == "200" || rspCode == 200)
   {
     return response;
   }
@@ -49,7 +49,7 @@ axios.interceptors.response.use((response) => {
         Vue.prototype.$message({ type: 'error', message: '服务器接口异常', showClose: true, customClass: 'messageBox'});
         break;
       default:
-        Vue.prototype.$message({ type: 'error', message: '未知错误', showClose: true, customClass: 'messageBox'});
+        Vue.prototype.$message({ type: 'error', message: '服务端返回未知错误', showClose: true, customClass: 'messageBox'});
         break;
   }
 }

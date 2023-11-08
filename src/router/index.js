@@ -9,12 +9,13 @@ import MoneyPage from '@/components/MoneyPage'
 import OpinionPage from '@/components/OpinionPage'
 import SubmitPage from '@/components/SubmitPage'
 import ArticlePage from '@/components/ArticlePage'
+import ToolPage from '@/components/ToolPage'
 
 Vue.use(Router) //全局router
 
 export default new Router({
   //路由数组
-  routes: [ 
+  routes: [
     //每一个链接都是一个对象
     {
       path: '/',
@@ -55,6 +56,11 @@ export default new Router({
           path: '/submit',
           name: 'SubmitPage',
           component: SubmitPage
+        },
+        {
+          path: '/tool',
+          name: 'ToolPage',
+          component: ToolPage
         }
       ]
     },

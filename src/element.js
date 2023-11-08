@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import 'element-ui/lib/theme-chalk/index.css'//element-ui的css
 import {
     Button,
     Form,
@@ -42,6 +43,9 @@ import {
     Upload,
     Alert,
     Tabs,
+    Dropdown,
+    DropdownMenu,
+    DropdownItem,
     TabPane
 } from 'element-ui'
 Vue.use(Button)
@@ -83,6 +87,9 @@ Vue.use(Cascader)
 Vue.use(Alert)
 Vue.use(Tabs)
 Vue.use(Upload)
+Vue.use(Dropdown)
+Vue.use(DropdownMenu)
+Vue.use(DropdownItem)
 Vue.use(TabPane)
 Vue.prototype.$message = Message
 Vue.prototype.$confirm = MessageBox.confirm

@@ -8,7 +8,7 @@
             有志青年志已不在千里~
           </h2>
       </el-header>
-      
+
       <el-container style="height: 100%;">
         <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
           <el-menu :default-openeds="['2']" :default-active="this.$route.path" router
@@ -39,6 +39,10 @@
               <el-menu-item-group>
                 <template slot="title">投递文案</template>
                 <el-menu-item index="/submit">投递文案</el-menu-item>
+              </el-menu-item-group>
+              <el-menu-item-group>
+                <template slot="title">图文媒体工具</template>
+                <el-menu-item index="/tool">图文媒体工具</el-menu-item>
               </el-menu-item-group>
               <el-menu-item-group title="回到首页">
                 <el-menu-item index="/">回到首页</el-menu-item>
