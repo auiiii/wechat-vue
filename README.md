@@ -18,4 +18,5 @@ npm run build
 npm run build --report
 ```
 
+前端基于element-ui实现分页管理数据
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
